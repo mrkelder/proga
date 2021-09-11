@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "components/Header";
+import AboutUs from "components/AboutUs";
 
 export default function Home() {
   return (
@@ -7,8 +8,8 @@ export default function Home() {
       <Head>
         <title>Proga</title>
       </Head>
-
       <Header />
+      <AboutUs />
     </>
-  )
+  );
 }
