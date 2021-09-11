@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "components/Header";
 import AboutUs from "components/AboutUs";
+import WhyUs from "components/WhyUs";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       </Head>
       <Header />
       <AboutUs />
+      <WhyUs />
     </>
   );
 }
