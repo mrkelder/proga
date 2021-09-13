@@ -25,9 +25,9 @@ function Statistics() {
   useEffect(() => {
     const execute = () => {
       if (
-        document.getElementById("notify") &&
+        notifyBlock.current &&
         window.scrollY + window.screen.height >=
-          document.getElementById("notify").offsetTop + 350 &&
+          notifyBlock.current.offsetTop + 350 &&
         state
       ) {
         state = false;
