@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect, createRef } from "react";
-import Heading from "./Heading";
+import React, { useState, useEffect, createRef } from "react";
+import Heading from "components/Heading";
 
 const data = [
   {
@@ -64,11 +64,11 @@ function WhyUs() {
     return () => {
       window.removeEventListener("scroll", execute);
     };
-  }, []);
+  }, [element]);
 
   return (
     <div className="my-4" id="features">
-      <div className="container mx-auto px-6 p-6 bg-white dark:bg-gray-800">
+      <div className="container mx-auto pt-0 p-6 bg-white dark:bg-gray-800">
         <Heading
           h2="особенности"
           text="Работая с нами, вы получаете"
