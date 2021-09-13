@@ -1,6 +1,7 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
-    "arrow-parens": ["error" ,"as-needed"]
+    "arrow-parens": ["error" ,"as-needed"],
+    "comma-dangle": ["error", "never"]
   }
 }
