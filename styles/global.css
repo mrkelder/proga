@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overflow-x: hidden;
+}
+
 .outline {
   @apply focus:ring-2 focus:ring-primary focus:outline-none transition;
 }
