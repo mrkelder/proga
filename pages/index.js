@@ -7,7 +7,6 @@ import Prices from "components/Prices";
 import Footer from "components/Footer";
 
 export default function Home() {
-  // TODO: create 404 page
   return (
     <>
       <Head>

@@ -43,13 +43,13 @@ function Header() {
               </button>
             ) : (
               <nav className="w-64 flex items-center justify-between text-gray-500 font-medium">
-                <span className="hover:text-black focus:text-black transition duration-100">
+                <span className="hover:text-black focus:text-black transition duration-200 cursor-pointer">
                   О нас
                 </span>
-                <span className="hover:text-black focus:text-black transition duration-100">
+                <span className="hover:text-black focus:text-black transition duration-200 cursor-pointer">
                   Особенности
                 </span>
-                <span className="hover:text-black focus:text-black transition duration-100">
+                <span className="hover:text-black focus:text-black transition duration-200 cursor-pointer">
                   Цены
                 </span>
               </nav>
