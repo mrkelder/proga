@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 let state = true;
+// FIXME: substitude this for a real state (useState)
 
 function Statistics() {
   const notifyBlock = useRef();

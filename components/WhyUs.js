@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createRef } from "react";
 import Heading from "components/Heading";
+import { useDispatch } from "react-redux";
 
 const data = [
   {
@@ -7,48 +8,56 @@ const data = [
     value:
       "Мы ценим время наших клиентов, поэтому исполняем заказы в кратчайшие сроки.",
     img: "/img/speed.svg",
-    border: "border-b md:border-r",
+    border: "border-b md:border-r"
   },
   {
     name: "Современность",
     value:
       "В нашей деятельности мы всегда отслеживаем и используем самые передовые технологии для создания наших продуктов.",
     img: "/img/react.svg",
-    border: "border-b lg:border-r",
+    border: "border-b lg:border-r"
   },
   {
     name: "Сервисы",
     value:
       "На сайтах наших клиентов могут быть встроены различные сервисы, такие как онлайн карты, платежные системы, базы данных компаний-партнеров и так далее.",
     img: "/img/api.svg",
-    border: "border-b md:border-r lg:border-r-0",
+    border: "border-b md:border-r lg:border-r-0"
   },
   {
     name: "Поддержку",
     value:
       "Мы обеспечиваем поддержку и обновление сайтов наших клиентов, а также производим миграцию баз данных.",
     img: "/img/support.svg",
-    border: "border-b lg:border-b-0 lg:border-r",
+    border: "border-b lg:border-b-0 lg:border-r"
   },
   {
     name: "Настройку",
     value:
       "Мы производим полную настройку серверов, присваиваем доменное имя, а также подключаем SSL/TLS сертификаты для безопасности Ваших клиентов.",
     img: "/img/server.svg",
-    border: "border-b md:border-r md:border-b-0",
+    border: "border-b md:border-r md:border-b-0"
   },
   {
     name: "Отзывчивость",
     value:
       "Наша компания всегда находится на связи с клиентами и может предоставить поддержку в любое удобное для Вас время.",
     img: "/img/tech-sup.svg",
-    border: "border-b md:border-b-0",
-  },
+    border: "border-b md:border-b-0"
+  }
 ];
 
 function WhyUs() {
   const [scrolled, setScrolled] = useState(false);
   const element = createRef();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({
+      type: "links/changeRef",
+      payload: { name: "skills", ref: element }
+    });
+  }, [element, dispatch]);
 
   useEffect(() => {
     const execute = () => {
@@ -92,7 +101,7 @@ function WhyUs() {
                   style={{
                     backgroundImage: `url('${img}')`,
                     backgroundSize: "90%",
-                    backgroundPosition: "50%",
+                    backgroundPosition: "50%"
                   }}
                 />
                 <div className="ml-4 text-xl">{name}</div>

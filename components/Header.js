@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Link from "next/link";
 import Image from "next/image";
 import icon from "public/img/icon.svg";
@@ -6,6 +7,8 @@ import Button from "components/Button";
 
 function Header() {
   const [innerWidth, setInnerWidth] = useState(null);
+  const { links } = useSelector(store => store.links);
+
   useEffect(() => {
     function onResize() {
       setInnerWidth(window.innerWidth);
@@ -18,6 +21,14 @@ function Header() {
       window.removeEventListener("resize", onResize);
     };
   }, [innerWidth]);
+
+  function linkScroll(name) {
+    return e => {
+      const top = links.find(i => i.name === name).ref.current.offsetTop;
+      e.preventDefault();
+      scroll({ top, behavior: "smooth" });
+    };
+  }
 
   return (
     <header className="flex flex-col relative lg:flex-row">
@@ -43,15 +54,27 @@ function Header() {
               </button>
             ) : (
               <nav className="w-64 flex items-center justify-between text-gray-500 font-medium">
-                <span className="hover:text-black focus:text-black transition duration-200 cursor-pointer">
+                <a
+                  href={null}
+                  onClick={linkScroll("about")}
+                  className="hover:text-black focus:text-black transition duration-200 cursor-pointer"
+                >
                   О нас
-                </span>
-                <span className="hover:text-black focus:text-black transition duration-200 cursor-pointer">
+                </a>
+                <a
+                  href={null}
+                  onClick={linkScroll("skills")}
+                  className="hover:text-black focus:text-black transition duration-200 cursor-pointer"
+                >
                   Особенности
-                </span>
-                <span className="hover:text-black focus:text-black transition duration-200 cursor-pointer">
+                </a>
+                <a
+                  href={null}
+                  onClick={linkScroll("prices")}
+                  className="hover:text-black focus:text-black transition duration-200 cursor-pointer"
+                >
                   Цены
-                </span>
+                </a>
               </nav>
             )}
           </div>

@@ -1,14 +1,22 @@
-import React from "react";
+import React, { createRef, useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 function AboutUs() {
+  const element = createRef();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({
+      type: "links/changeRef",
+      payload: { name: "about", ref: element }
+    });
+  }, [element, dispatch]);
+
   return (
     <>
-      <div className="py-20 px-4 text-white" id="about-us">
+      <div className="py-20 px-4 text-white" id="about-us" ref={element}>
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row">
-          <h2
-            id="about_us_h2"
-            className="mr-8 w-full md:w-1/3 text-3xl font-extrabold leading-9"
-          >
+          <h2 className="mr-8 w-full md:w-1/3 text-3xl font-extrabold leading-9">
             О нашей компании
           </h2>
           <dl className="w-full md:w-2/3 animFadeOn">

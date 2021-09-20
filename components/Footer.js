@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const footer = [
   {
     title: "карта",
     li: [
-      { name: "О нас", link: "/" },
-      { name: "Особенности", link: "/" },
-      { name: "Цены", link: "/" }
+      { name: "О нас", link: null, refName: "about" },
+      { name: "Особенности", link: null, refName: "skills" },
+      { name: "Цены", link: null, refName: "prices" }
     ]
   },
   {
@@ -23,8 +24,8 @@ const footer = [
 ];
 
 function Footer() {
-  // FIXME: substitude plain links with their equivalent
   const [date, setDate] = useState(null);
+  const { links } = useSelector(store => store.links);
 
   useEffect(() => {
     // I don't render this in jsx directly because it'd cause server to render the date
@@ -41,13 +42,22 @@ function Footer() {
           >
             <h2 className="uppercase font-bold text-lg lg:text-md">{title}</h2>
             <ul className="sm:flex sm:flex-col sm:items-center">
-              {li.map(({ name, link }) => (
-                <li className="my-3 font-light sm:my-2" key={name}>
+              {li.map(params => (
+                <li className="my-3 font-light sm:my-2" key={params.name}>
                   <a
-                    className="text-white transition duration-200 hover:opacity-50"
-                    href={link}
+                    className="text-white transition duration-200 hover:opacity-50 cursor-pointer"
+                    href={params.link}
+                    onClick={e => {
+                      if (!params.link) {
+                        const top = links.find(i => i.name === params.refName)
+                          .ref.current.offsetTop;
+
+                        e.preventDefault();
+                        scroll({ top, behavior: "smooth" });
+                      } else return;
+                    }}
                   >
-                    {name}
+                    {params.name}
                   </a>
                 </li>
               ))}

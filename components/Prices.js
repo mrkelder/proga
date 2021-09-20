@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, createRef } from "react";
 import Heading from "components/Heading";
 import PriceCard from "components/PriceCard";
+import { useDispatch } from "react-redux";
 
 const cards = [
   {
@@ -11,9 +12,9 @@ const cards = [
       "Настройка сервера под Ваши нужды",
       "Установка доменного имени",
       "Предоставление SSL/TLS сертификации",
-      "Подключение всех необходимых Вам платежных систем",
+      "Подключение всех необходимых Вам платежных систем"
     ],
-    price: "$1000",
+    price: "$1000"
   },
   {
     title: "Корпоративный сайт",
@@ -23,9 +24,9 @@ const cards = [
       "Настройка сервера под Ваши нужды",
       "Установка доменного имени",
       "Предоставление SSL/TLS сертификации",
-      "Подключение всех необходимых Вам платежных систем",
+      "Подключение всех необходимых Вам платежных систем"
     ],
-    price: "$1000",
+    price: "$1000"
   },
   {
     title: "Создание торговой площадки",
@@ -35,9 +36,9 @@ const cards = [
       "Настройка сервера под Ваши нужды",
       "Установка доменного имени",
       "Предоставление SSL/TLS сертификации",
-      "Панель статистики Ваших продаж на основе Stripe",
+      "Панель статистики Ваших продаж на основе Stripe"
     ],
-    price: "$1000",
+    price: "$1000"
   },
   {
     title: "Сайт-визитка",
@@ -45,9 +46,9 @@ const cards = [
     pluses: [
       "Срок создания сайта-везитки 7 дней",
       "Установка доменного имени",
-      "Предоставление SSL/TLS сертификации",
+      "Предоставление SSL/TLS сертификации"
     ],
-    price: "$500",
+    price: "$500"
   },
   {
     title: "Ваш собственный проект",
@@ -57,17 +58,31 @@ const cards = [
       "Предоставление SSL/TLS сертификации",
       "Подключение сторонних сервисов (PayPal, Google Maps...)",
       "Работа с 2D графикой",
-      "Создание 3D панорам",
+      "Создание 3D панорам"
     ],
     price: "Догорная",
-    fS: "32px",
-  },
+    fS: "32px"
+  }
 ];
 
 function Prices() {
+  const element = createRef();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({
+      type: "links/changeRef",
+      payload: { name: "prices", ref: element }
+    });
+  }, [element, dispatch]);
+
   return (
     <div>
-      <Heading h2="цены" text="Готовые решения или Ваш индивидуальный проект" />
+      <Heading
+        h2="цены"
+        ref={element}
+        text="Готовые решения или Ваш индивидуальный проект"
+      />
       {cards.map(service => (
         <PriceCard key={service.title} {...service} />
       ))}
