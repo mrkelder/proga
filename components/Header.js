@@ -5,6 +5,7 @@ import Image from "next/image";
 import icon from "public/img/icon.svg";
 import Button from "components/Button";
 import MobileMenu from "components/MobileMenu";
+import keyDownHandler from "app/keyDown";
 
 function Header() {
   const [innerWidth, setInnerWidth] = useState(null);
@@ -65,21 +66,33 @@ function Header() {
                 <a
                   href={null}
                   onClick={linkScroll("about")}
-                  className="hover:text-black focus:text-black transition duration-200 cursor-pointer"
+                  onKeyDown={e => {
+                    keyDownHandler(e, linkScroll("about"), e);
+                  }}
+                  tabIndex="0"
+                  className="hover:text-black focus:text-black transition duration-200 cursor-pointer outline-none"
                 >
                   О нас
                 </a>
                 <a
                   href={null}
                   onClick={linkScroll("skills")}
-                  className="hover:text-black focus:text-black transition duration-200 cursor-pointer"
+                  onKeyDown={e => {
+                    keyDownHandler(e, linkScroll("skills"), e);
+                  }}
+                  tabIndex="0"
+                  className="hover:text-black focus:text-black transition duration-200 cursor-pointer outline-none"
                 >
                   Особенности
                 </a>
                 <a
                   href={null}
                   onClick={linkScroll("prices")}
-                  className="hover:text-black focus:text-black transition duration-200 cursor-pointer"
+                  onKeyDown={e => {
+                    keyDownHandler(e, linkScroll("prices"), e);
+                  }}
+                  tabIndex="0"
+                  className="hover:text-black focus:text-black transition duration-200 cursor-pointer outline-none"
                 >
                   Цены
                 </a>
