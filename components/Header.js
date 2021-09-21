@@ -4,9 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import icon from "public/img/icon.svg";
 import Button from "components/Button";
+import MobileMenu from "components/MobileMenu";
 
 function Header() {
   const [innerWidth, setInnerWidth] = useState(null);
+  const [menuOpened, setMenuOpened] = useState(false);
   const { links } = useSelector(store => store.links);
 
   useEffect(() => {
@@ -32,6 +34,9 @@ function Header() {
 
   return (
     <header className="flex flex-col relative lg:flex-row">
+      {innerWidth < 768 && (
+        <MobileMenu opened={menuOpened} setOpened={setMenuOpened} />
+      )}
       <div className="lg:max-w-7xl lg:w-full lg:mx-auto">
         <div className="px-4 mb-6 bg-white sm:px-6 sm:mb-14 lg:relative lg:z-10 lg:mb-0 lg:px-0 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 info-block">
           <div className="box-border mt-6 flex justify-between lg:mt-0 lg:p-6 lg:pb-0 lg:justify-start">
@@ -47,8 +52,11 @@ function Header() {
               </a>
             </Link>
             {innerWidth < 768 ? (
-              <button className="flex items-center outline rounded">
-                <span className="material-icons text-primary text-3xl sm:text-4xl">
+              <button
+                className="flex items-center outline rounded menu-interact"
+                onClick={() => setMenuOpened(true)}
+              >
+                <span className="material-icons text-primary text-3xl sm:text-4xl menu-interact">
                   menu
                 </span>
               </button>
