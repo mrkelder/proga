@@ -7,7 +7,7 @@ import Button from "components/Button";
 import MobileMenu from "components/MobileMenu";
 import keyDownHandler from "app/keyDown";
 
-function Header() {
+function Header({ setVisibility }) {
   const [innerWidth, setInnerWidth] = useState(null);
   const [menuOpened, setMenuOpened] = useState(false);
   const { links } = useSelector(store => store.links);
@@ -109,7 +109,10 @@ function Header() {
               способных повысить продажи, увеличить аудиторию или улучшить
               производительность имеющегося продукта.
             </p>
-            <Button style="my-3 sm:mt-5 sm:w-52 sm:mx-auto md:w-60 md:mt-8 lg:ml-0">
+            <Button
+              onClick={() => setVisibility(true)}
+              style="my-3 sm:mt-5 sm:w-52 sm:mx-auto md:w-60 md:mt-8 lg:ml-0"
+            >
               Связаться с нами
             </Button>
           </div>

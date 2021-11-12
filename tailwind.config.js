@@ -9,7 +9,10 @@ module.exports = {
       current: "currentColor",
       black: colors.black,
       white: colors.white,
-      gray: colors.trueGray,
+      gray: {
+        ...colors.trueGray,
+        transparent: "#000000cc"
+      },
       red: colors.rose,
       yellow: colors.amber,
       primary: "#7c3aed",

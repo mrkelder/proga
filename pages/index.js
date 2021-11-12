@@ -5,14 +5,20 @@ import WhyUs from "components/WhyUs";
 import Statistics from "components/Statistics";
 import Prices from "components/Prices";
 import Footer from "components/Footer";
+import Dialog from "components/Dialog";
+import { useState } from "react";
 
 export default function Home() {
+  const [isVisible, setVisibility] = useState(false);
   return (
     <>
       <Head>
         <title>Proga</title>
       </Head>
-      <Header />
+
+      <Dialog {...{ isVisible, setVisibility }} />
+
+      <Header {...{ setVisibility }} />
       <AboutUs />
       <WhyUs />
       <Statistics />
