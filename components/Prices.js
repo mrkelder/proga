@@ -1,6 +1,6 @@
-import React, { useEffect, createRef } from "react";
+import dynamic from "next/dynamic";
+import { useEffect, createRef } from "react";
 import Heading from "components/Heading";
-import PriceCard from "components/PriceCard";
 import { useDispatch } from "react-redux";
 
 const cards = [
@@ -64,6 +64,8 @@ const cards = [
     fS: "32px"
   }
 ];
+
+const PriceCard = dynamic(() => import("components/PriceCard"));
 
 function Prices() {
   const element = createRef();

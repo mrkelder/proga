@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createRef } from "react";
+import Image from "next/image";
 import Heading from "components/Heading";
 import { useDispatch } from "react-redux";
 
@@ -7,43 +8,49 @@ const data = [
     name: "Скорость",
     value:
       "Мы ценим время наших клиентов, поэтому исполняем заказы в кратчайшие сроки.",
-    img: "/img/speed.svg",
-    border: "border-b md:border-r"
+    src: "/img/speed.webp",
+    border: "border-b md:border-r",
+    height: 23.67
   },
   {
     name: "Современность",
     value:
       "В нашей деятельности мы всегда отслеживаем и используем самые передовые технологии для создания наших продуктов.",
-    img: "/img/react.svg",
-    border: "border-b lg:border-r"
+    src: "/img/react.webp",
+    border: "border-b lg:border-r",
+    height: 34.16
   },
   {
     name: "Сервисы",
     value:
       "На сайтах наших клиентов могут быть встроены различные сервисы, такие как онлайн карты, платежные системы, базы данных компаний-партнеров и так далее.",
-    img: "/img/api.svg",
-    border: "border-b md:border-r lg:border-r-0"
+    src: "/img/api.webp",
+    border: "border-b md:border-r lg:border-r-0",
+    height: 36
   },
   {
     name: "Поддержку",
     value:
       "Мы обеспечиваем поддержку и обновление сайтов наших клиентов, а также производим миграцию баз данных.",
-    img: "/img/support.svg",
-    border: "border-b lg:border-b-0 lg:border-r"
+    src: "/img/support.webp",
+    border: "border-b lg:border-b-0 lg:border-r",
+    height: 36
   },
   {
     name: "Настройку",
     value:
       "Мы производим полную настройку серверов, присваиваем доменное имя, а также подключаем SSL/TLS сертификаты для безопасности Ваших клиентов.",
-    img: "/img/server.svg",
-    border: "border-b md:border-r md:border-b-0"
+    src: "/img/server.webp",
+    border: "border-b md:border-r md:border-b-0",
+    height: 36
   },
   {
     name: "Отзывчивость",
     value:
       "Наша компания всегда находится на связи с клиентами и может предоставить поддержку в любое удобное для Вас время.",
-    img: "/img/tech-sup.svg",
-    border: "border-b md:border-b-0"
+    src: "/img/tech-sup.webp",
+    border: "border-b md:border-b-0",
+    height: 40.07
   }
 ];
 
@@ -90,20 +97,15 @@ function WhyUs() {
               : "flex flex-wrap my-12 dark:text-white animTopOff"
           }
         >
-          {data.map(({ name, value, img, border }) => (
+          {data.map(({ name, value, src, height, border }) => (
             <div
               className={"w-full md:w-1/2 lg:w-1/3 p-8 " + border}
               key={name}
             >
               <div className="flex items-center mb-6">
-                <div
-                  className="w-9 h-9 bg-no-repeat cursor-pointer par-icon"
-                  style={{
-                    backgroundImage: `url('${img}')`,
-                    backgroundSize: "90%",
-                    backgroundPosition: "50%"
-                  }}
-                />
+                <div className="flex items-center cursor-pointer par-icon">
+                  <Image {...{ src, height }} width={36} alt={name} />
+                </div>
                 <div className="ml-4 text-xl">{name}</div>
               </div>
               <p className="leading-loose text-gray-500 dark:text-gray-200 text-md">

@@ -4,6 +4,8 @@ import Button from "./Button";
 
 function Dialog({ isVisible, setVisibility }) {
   const stopPropagation = e => e.stopPropagation();
+  const hide = () => setVisibility(false);
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -12,7 +14,7 @@ function Dialog({ isVisible, setVisibility }) {
           initial={{ opacity: 0, display: "flex" }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={() => setVisibility(false)}
+          onClick={hide}
           className="left-0 right-0 fixed w-screen h-screen bg-gray-transparent z-20 items-center justify-center"
         >
           <div className="contact-form bg-white" onClick={stopPropagation}>

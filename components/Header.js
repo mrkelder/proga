@@ -25,6 +25,9 @@ function Header({ setVisibility }) {
     };
   }, [innerWidth]);
 
+  const openMenu = () => setMenuOpened(true);
+  const makeVisible = () => setVisibility(false);
+
   function linkScroll(name) {
     return e => {
       const top = links.find(i => i.name === name).ref.current.offsetTop;
@@ -55,7 +58,7 @@ function Header({ setVisibility }) {
             {innerWidth < 768 ? (
               <button
                 className="flex items-center outline rounded menu-interact"
-                onClick={() => setMenuOpened(true)}
+                onClick={openMenu}
               >
                 <span className="material-icons text-primary text-3xl sm:text-4xl menu-interact">
                   menu
@@ -110,7 +113,7 @@ function Header({ setVisibility }) {
               производительность имеющегося продукта.
             </p>
             <Button
-              onClick={() => setVisibility(true)}
+              onClick={makeVisible}
               style="my-3 sm:mt-5 sm:w-52 sm:mx-auto md:w-60 md:mt-8 lg:ml-0"
             >
               Связаться с нами
@@ -134,7 +137,7 @@ function Header({ setVisibility }) {
 
       <style jsx>{`
         .main-photo {
-          background-image: url("/img/photo.jpg");
+          background-image: url("/img/photo.webp");
           background-size: 100%;
           background-position: 50%;
         }

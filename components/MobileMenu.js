@@ -61,6 +61,8 @@ function MobileMenu({ opened, setOpened }) {
     animate();
   }, [opened, controls]);
 
+  const closeMenu = () => setOpened(false);
+
   return (
     <div ref={ref}>
       <motion.nav
@@ -86,7 +88,7 @@ function MobileMenu({ opened, setOpened }) {
             </a>
           </Link>
           <button
-            onClick={() => setOpened(false)}
+            onClick={closeMenu}
             className="w-8 h-8 sm:w-10 sm:h-10 outline rounded lg:mr-10 flex items-center justify-center menu-interact"
           >
             <Image src={cross} alt="cross" width={28} height={28} />

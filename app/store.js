@@ -6,8 +6,12 @@ const rootReducer = combineReducers({
   links: linksReducer
 });
 
+const isProduction = process.env.NODE_ENV === "production";
+
 const middleWare = composeWithDevTools(applyMiddleware());
 
-const store = createStore(rootReducer, middleWare);
+const store = isProduction
+  ? createStore(rootReducer)
+  : createStore(rootReducer, middleWare);
 
 export default store;
