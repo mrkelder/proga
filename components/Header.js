@@ -125,9 +125,6 @@ function Header({ setVisibility }) {
           </svg>
         </div>
       </div>
-      {/* <div className="">
-        <div className="main-photo h-44 bg-no-repeat lg:absolute" />
-      </div> */}
       <div className="relative h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
         <Image
           layout="fill"
@@ -135,43 +132,8 @@ function Header({ setVisibility }) {
           alt="developers"
           objectFit="cover"
           objectPosition="50%"
-          priority
         />
       </div>
-
-      <style jsx>{`
-        .main-photo {
-          background-image: url("/img/photo.webp");
-          background-size: 100%;
-          background-position: 50%;
-        }
-        @media (min-width: 375px) {
-          .main-photo {
-            height: 240px;
-          }
-        }
-        @media (min-width: 375px) {
-          .main-photo {
-            height: 300px;
-          }
-        }
-        @media (min-width: 768px) {
-          .main-photo {
-            height: 380px;
-          }
-        }
-        @media (min-width: 1024px) {
-          .info-block {
-            margin-right: auto;
-          }
-          .main-photo {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: 65%;
-          }
-        }
-      `}</style>
     </header>
   );
 }
