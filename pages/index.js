@@ -17,9 +17,9 @@ export default function Home() {
       <Head>
         <title>Proga</title>
       </Head>
+      <Dialog {...{ isVisible, setVisibility }} />
+      <Header {...{ setVisibility }} />
       <main>
-        <Dialog {...{ isVisible, setVisibility }} />
-        <Header {...{ setVisibility }} />
         <AboutUs />
         <WhyUs />
         <Statistics />
