@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import Image from "next/image";
-import icon from "public/img/icon.svg";
+import icon from "public/img/icon.png";
 import Button from "components/Button";
 import MobileMenu from "components/MobileMenu";
 import keyDownHandler from "app/keyDown";
@@ -46,13 +46,7 @@ function Header({ setVisibility }) {
           <div className="box-border mt-6 flex justify-between lg:mt-0 lg:p-6 lg:pb-0 lg:justify-start">
             <Link href="/">
               <a className="w-8 h-8 sm:w-10 sm:h-10 outline rounded lg:mr-10">
-                <Image
-                  src={icon}
-                  alt="logo"
-                  width={32}
-                  height={32}
-                  layout="responsive"
-                />
+                <Image src={icon} alt="logo" layout="responsive" />
               </a>
             </Link>
             {innerWidth < 768 ? (
@@ -131,8 +125,18 @@ function Header({ setVisibility }) {
           </svg>
         </div>
       </div>
-      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+      {/* <div className="">
         <div className="main-photo h-44 bg-no-repeat lg:absolute" />
+      </div> */}
+      <div className="relative h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
+        <Image
+          layout="fill"
+          src="/img/photo.webp"
+          alt="developers"
+          objectFit="cover"
+          objectPosition="50%"
+          priority
+        />
       </div>
 
       <style jsx>{`
