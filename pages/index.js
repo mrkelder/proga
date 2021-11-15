@@ -18,7 +18,8 @@ export default function Home() {
   const metaImage = "/img/logo.jpg";
   return (
     <>
-      {/* TODO: metatags, semmantics (check headers and check sections), image sizing optimization */}
+      {/* TODO: semmantics (check headers and check sections), image sizing optimization */}
+      {/* FIXME: add global paths to meta images */}
       <Head>
         <title>Proga</title>
         <meta name="description" content={metaDescription} />
@@ -40,7 +41,7 @@ export default function Home() {
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDescription} />
         <meta name="twitter:image" content={metaImage} />
-        <meta name="twitter:card" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image:alt" content="Логотип" />
       </Head>
       <Dialog {...{ isVisible, setVisibility }} />
