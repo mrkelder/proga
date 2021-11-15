@@ -26,7 +26,7 @@ function Header({ setVisibility }) {
   }, [innerWidth]);
 
   const openMenu = () => setMenuOpened(true);
-  const makeVisible = () => setVisibility(false);
+  const makeVisible = () => setVisibility(true);
 
   function linkScroll(name) {
     return e => {
