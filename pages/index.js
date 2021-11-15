@@ -15,7 +15,7 @@ export default function Home() {
   const metaTitle = "Proga - разработка современных веб-приложений.";
   const metaDescription =
     "Proga - разработка современных веб-приложений, способных повысить продажи, увеличить аудиторию или улучшить производительность имеющегося продукта.";
-  const metaImage = "/img/logo.jpg";
+  const metaImage = "https://proga-mrkelder.vercel.app/img/logo.jpg";
   return (
     <>
       {/* TODO: semmantics (check headers and check sections), image sizing optimization */}
