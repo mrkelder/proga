@@ -67,7 +67,7 @@ const cards = [
 
 const PriceCard = dynamic(() => import("components/PriceCard"));
 
-function Prices() {
+function Prices({ setVisibility }) {
   const element = createRef();
   const dispatch = useDispatch();
 
@@ -86,7 +86,7 @@ function Prices() {
         text="Готовые решения или Ваш индивидуальный проект"
       />
       {cards.map(service => (
-        <PriceCard key={service.title} {...service} />
+        <PriceCard key={service.title} {...{ ...service, setVisibility }} />
       ))}
     </div>
   );

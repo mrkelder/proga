@@ -1,9 +1,11 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import linksReducer from "app/linksReducer";
+import formReducer from "app/formReducer";
 
 const rootReducer = combineReducers({
-  links: linksReducer
+  links: linksReducer,
+  form: formReducer
 });
 
 const isProduction = process.env.NODE_ENV === "production";

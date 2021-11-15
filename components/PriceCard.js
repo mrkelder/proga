@@ -1,7 +1,15 @@
 import { motion } from "framer-motion";
 import Button from "components/Button";
+import { useDispatch } from "react-redux";
 
-function Card({ price, title, text, pluses, fS }) {
+function Card({ price, title, text, pluses, fS, setVisibility }) {
+  const dispatch = useDispatch();
+
+  function chooseOption() {
+    dispatch({ type: "form/changeText", payload: title + ": " });
+    setVisibility(true);
+  }
+
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
@@ -60,7 +68,9 @@ function Card({ price, title, text, pluses, fS }) {
           </p>
           <div className="mt-6">
             <div className="rounded-md shadow">
-              <Button style="h-10 lg:h-12">Выбрать</Button>
+              <Button style="h-10 lg:h-12" onClick={chooseOption}>
+                Выбрать
+              </Button>
             </div>
           </div>
         </div>

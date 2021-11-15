@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 let state = true;
 // FIXME: substitude this for a real state (useState)
 
-function Statistics() {
+function Statistics({ setVisibility }) {
   const notifyBlock = useRef();
 
   function animateValue(id, start, end, duration, add = "") {
@@ -22,6 +22,8 @@ function Statistics() {
       }
     }, stepTime);
   }
+
+  const makeVisible = () => setVisibility(true);
 
   useEffect(() => {
     const execute = () => {
@@ -104,6 +106,7 @@ function Statistics() {
         <button
           type="button"
           className="py-2 px-4 bg-primary text-white w-full transition ease-in duration-100 text-center text-base font-semibold shadow-md focus:ring-2 focus:ring-white focus:outline-none"
+          onClick={makeVisible}
         >
           Связаться с нами
         </button>

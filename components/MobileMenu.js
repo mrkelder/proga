@@ -85,7 +85,7 @@ function MobileMenu({ opened, setOpened }) {
             onClick={closeMenu}
             className="w-8 h-8 sm:w-10 sm:h-10 outline rounded lg:mr-10 flex items-center justify-center menu-interact"
           >
-            <Image src={cross} alt="cross" width={28} height={28} />
+            <Image src={cross} alt="закрыть" width={28} height={28} />
           </button>
         </div>
         <ul className="mt-5">

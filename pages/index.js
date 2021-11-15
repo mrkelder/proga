@@ -49,8 +49,8 @@ export default function Home() {
       <main>
         <AboutUs />
         <WhyUs />
-        <Statistics />
-        <Prices />
+        <Statistics {...{ setVisibility }} />
+        <Prices {...{ setVisibility }} />
       </main>
       <Footer />
     </>
