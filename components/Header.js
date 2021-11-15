@@ -125,14 +125,17 @@ function Header({ setVisibility }) {
           </svg>
         </div>
       </div>
-      <div className="relative h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
-        <Image
-          layout="fill"
-          src="/img/photo.webp"
-          alt="developers"
-          objectFit="cover"
-          objectPosition="50%"
-        />
+      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
+        <div className="relative h-72 md:h-96 lg:h-full">
+          <Image
+            layout="fill"
+            src="/img/photo.webp"
+            alt="developers"
+            objectFit="cover"
+            objectPosition="50%"
+            priority
+          />
+        </div>
       </div>
     </header>
   );

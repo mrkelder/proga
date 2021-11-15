@@ -15,7 +15,7 @@ export default function Home() {
   const metaTitle = "Proga - разработка современных веб-приложений.";
   const metaDescription =
     "Proga - разработка современных веб-приложений, способных повысить продажи, увеличить аудиторию или улучшить производительность имеющегося продукта.";
-  const metaLogo = "/img/logo.jpg";
+  const metaImage = "/img/logo.jpg";
   return (
     <>
       {/* TODO: metatags, semmantics (check headers and check sections), image sizing optimization */}
@@ -32,13 +32,16 @@ export default function Home() {
         {/* Social media meta */}
         <meta property="og:title" content={metaTitle} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={metaLogo} />
+        <meta property="og:image" content={metaImage} />
         <meta property="og:url" content="/" />
-        <meta name="twitter:card" content={metaLogo} />
-
         <meta property="og:description" content={metaDescription} />
         <meta property="og:site_name" content={metaTitle} />
-        <meta name="twitter:image:alt" content={metaTitle} />
+
+        <meta name="twitter:title" content={metaTitle} />
+        <meta name="twitter:description" content={metaDescription} />
+        <meta name="twitter:image" content={metaImage} />
+        <meta name="twitter:card" content="website" />
+        <meta name="twitter:image:alt" content="Логотип" />
       </Head>
       <Dialog {...{ isVisible, setVisibility }} />
       <Header {...{ setVisibility }} />
