@@ -6,6 +6,7 @@ import icon from "public/img/icon.png";
 import Button from "components/Button";
 import MobileMenu from "components/MobileMenu";
 import keyDownHandler from "app/keyDown";
+import developers from "public/img/photo.webp";
 
 function Header({ setVisibility }) {
   const TITLE = "Вашего бизнеса";
@@ -153,7 +154,7 @@ function Header({ setVisibility }) {
         <div className="relative h-72 md:h-96 lg:h-full">
           <Image
             layout="fill"
-            src="/img/photo.webp"
+            src={developers}
             alt="developers"
             objectFit="cover"
             objectPosition="50%"

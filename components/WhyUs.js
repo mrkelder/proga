@@ -2,13 +2,19 @@ import React, { useState, useEffect, createRef } from "react";
 import Image from "next/image";
 import Heading from "components/Heading";
 import { useDispatch } from "react-redux";
+import speed from "public/img/speed.webp";
+import react from "public/img/react.webp";
+import api from "public/img/api.webp";
+import support from "public/img/support.webp";
+import server from "public/img/server.webp";
+import tech from "public/img/tech-sup.webp";
 
 const data = [
   {
     name: "Скорость",
     value:
       "Мы ценим время наших клиентов, поэтому исполняем заказы в кратчайшие сроки.",
-    src: "/img/speed.webp",
+    src: speed,
     border: "border-b md:border-r",
     height: 23.67
   },
@@ -16,7 +22,7 @@ const data = [
     name: "Современность",
     value:
       "В нашей деятельности мы всегда отслеживаем и используем самые передовые технологии для создания наших продуктов.",
-    src: "/img/react.webp",
+    src: react,
     border: "border-b lg:border-r",
     height: 34.16
   },
@@ -24,7 +30,7 @@ const data = [
     name: "Сервисы",
     value:
       "На сайтах наших клиентов могут быть встроены различные сервисы, такие как онлайн карты, платежные системы, базы данных компаний-партнеров и так далее.",
-    src: "/img/api.webp",
+    src: api,
     border: "border-b md:border-r lg:border-r-0",
     height: 36
   },
@@ -32,7 +38,7 @@ const data = [
     name: "Поддержку",
     value:
       "Мы обеспечиваем поддержку и обновление сайтов наших клиентов, а также производим миграцию баз данных.",
-    src: "/img/support.webp",
+    src: support,
     border: "border-b lg:border-b-0 lg:border-r",
     height: 36
   },
@@ -40,7 +46,7 @@ const data = [
     name: "Настройку",
     value:
       "Мы производим полную настройку серверов, присваиваем доменное имя, а также подключаем SSL/TLS сертификаты для безопасности Ваших клиентов.",
-    src: "/img/server.webp",
+    src: server,
     border: "border-b md:border-r md:border-b-0",
     height: 36
   },
@@ -48,7 +54,7 @@ const data = [
     name: "Отзывчивость",
     value:
       "Наша компания всегда находится на связи с клиентами и может предоставить поддержку в любое удобное для Вас время.",
-    src: "/img/tech-sup.webp",
+    src: tech,
     border: "border-b md:border-b-0",
     height: 40.07
   }

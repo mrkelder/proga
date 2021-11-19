@@ -6,6 +6,9 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import validate from "app/validateForm";
+import success from "public/img/success.png";
+import failure from "public/img/success.png";
+import loading from "public/img/loading.png";
 
 const FORM_IMAGE_SIZE = "w-36 h-36 sm:w-52 sm:h-52";
 
@@ -65,8 +68,8 @@ const ResponseBlock = ({ chooseRequestResult, cleanForm }) => {
     <div className="flex flex-col items-center justify-center flex-1">
       <div className={FORM_IMAGE_SIZE + " relative"}>
         {chooseRequestResult(
-          <Image layout="fill" src="/img/success.png" alt="Успех" />,
-          <Image layout="fill" src="/img/failure.png" alt="Ошибка" />
+          <Image layout="fill" src={success} alt="Успех" />,
+          <Image layout="fill" src={failure} alt="Ошибка" />
         )}
       </div>
       <p className="text-center mt-5">
@@ -85,7 +88,7 @@ const ResponseBlock = ({ chooseRequestResult, cleanForm }) => {
 const LoadingBlock = () => (
   <div className="flex-1 flex items-center justify-center">
     <div className={" animate-spin relative " + FORM_IMAGE_SIZE}>
-      <Image src="/img/loading.png" layout="fill" alt="Загрузка" />
+      <Image src={loading} layout="fill" alt="Загрузка" />
     </div>
   </div>
 );
