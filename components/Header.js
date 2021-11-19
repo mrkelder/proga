@@ -8,9 +8,28 @@ import MobileMenu from "components/MobileMenu";
 import keyDownHandler from "app/keyDown";
 
 function Header({ setVisibility }) {
+  const TITLE = "Вашего бизнеса";
+  const [title, setTitle] = useState("");
   const [innerWidth, setInnerWidth] = useState(null);
   const [menuOpened, setMenuOpened] = useState(false);
   const { links } = useSelector(store => store.links);
+
+  useEffect(() => {
+    let index = 0;
+    let currentTitle = "";
+
+    function addSymbol() {
+      if (currentTitle.length < TITLE.length)
+        setTimeout(() => {
+          currentTitle += TITLE[index];
+          setTitle(currentTitle);
+          index++;
+          addSymbol();
+        }, 150);
+    }
+
+    addSymbol();
+  }, []);
 
   useEffect(() => {
     function onResize() {
@@ -99,7 +118,12 @@ function Header({ setVisibility }) {
           <div className="sm:flex sm:flex-col sm:items-center lg:px-6 lg:items-start  lg:pt-16">
             <h1 className="text-4xl font-bold mt-10 tracking-tight flex flex-wrap sm:flex-col sm:items-center sm:text-5xl md:text-6xl lg:items-start">
               <span>Создание сайта для</span>
-              <span className="text-primary">Вашего бизнеса</span>
+              <span className="text-primary flex">
+                {title}
+                <span className="animate-blink">
+                  <div className="w-1 ml-1 h-full bg-primary" />
+                </span>
+              </span>
             </h1>
             <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:text-center md:text-xl lg:mx-0 lg:text-left">
               Наша компания предоставляет создание современных веб-приложений,
