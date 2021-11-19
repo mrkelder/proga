@@ -20,21 +20,21 @@ function validation(who, contact, text) {
 }
 
 export default async function handler(req, res) {
-  try {
-    const { who, text, contact } = req.query;
-    if (who && text && contact && validation(who, contact, text)) {
-      const url = `${process.env.API_HOST}/t?who=${encodeURIComponent(
-        who
-      )}&text=${encodeURIComponent(text)}&contact=${encodeURIComponent(
-        contact
-      )}`;
+  const { who, text, contact } = req.query;
+  const sendError = errorMessage => {
+    res.status(406).send(errorMessage);
+  };
 
-      const result = await fetch(url, { method: "POST" });
-      if (result.ok) res.status(200).send("Success");
-      else throw new Error("Client: Server denied a request");
-    } else throw new Error("Client: Received the invalid request queries");
-  } catch (err) {
-    console.error(err);
-    res.status(500).send(err.message);
-  }
+  if (who && text && contact && validation(who, contact, text)) {
+    const result = await fetch(process.env.API_HOST + "/t", {
+      method: "POST",
+      body: JSON.stringify({ who, text, contact }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    if (result.ok) res.status(200).send("Success");
+    else sendError("Client: Server denied a request");
+  } else sendError("Client: Received the invalid request queries");
 }

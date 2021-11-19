@@ -13,6 +13,8 @@ function formReducer(state = initialState, action) {
       return { ...state, contact: payload };
     case "form/changeText":
       return { ...state, text: payload };
+    case "form/reset":
+      return initialState;
     default:
       return state;
   }
