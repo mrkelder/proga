@@ -19,6 +19,8 @@ function validation(who, contact, text) {
   }
 }
 
+// TODO: remove local validation
+
 export default async function handler(req, res) {
   const { who, text, contact } = req.query;
   const sendError = errorMessage => {

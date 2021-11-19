@@ -5,11 +5,19 @@ import cross from "public/img/cross.svg";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import validate from "app/validateForm";
 
 const FORM_IMAGE_SIZE = "w-36 h-36 sm:w-52 sm:h-52";
 
-const Form = ({ handleForm, textareaValue, inputHandler }) => (
-  <form onSubmit={handleForm}>
+const Form = ({
+  submitForm,
+  textareaValue,
+  inputHandler,
+  textVal,
+  contactVal,
+  whoVal
+}) => (
+  <form onSubmit={submitForm}>
     <h2 className="flex justify-center font-sans relative mb-5">
       <hr className="border-gray-400 top-3 w-full absolute" />
       <span className="text-gray-500 bg-white relative z-30 px-2">
@@ -21,15 +29,17 @@ const Form = ({ handleForm, textareaValue, inputHandler }) => (
       placeholder="Фамилия Имя Отчество"
       onChange={inputHandler("Who")}
       inputname="who"
+      error={whoVal}
     />
     <Input
       name="contact"
       placeholder="Email или телефон"
       onChange={inputHandler("Contact")}
       inputname="contact"
+      error={contactVal}
     />
     <textarea
-      className="input max-h-64"
+      className={`input max-h-64 ${textVal ? "outline-error" : "outline"}`}
       placeholder="Ваш комментарий"
       onChange={inputHandler("Text")}
       name="comment"
@@ -81,6 +91,10 @@ const LoadingBlock = () => (
 );
 
 function Dialog({ isVisible, setVisibility }) {
+  const [whoVal, setWhoVal] = useState(false);
+  const [contactVal, setContactVal] = useState(false);
+  const [textVal, setTextVal] = useState(false);
+
   const [requestIsSent, setRequestIsSent] = useState(false);
   const [requestSuccess, setRequestSuccess] = useState(null);
   const stopPropagation = e => e.stopPropagation();
@@ -100,21 +114,41 @@ function Dialog({ isVisible, setVisibility }) {
     };
   }
 
+  function resetValidation() {
+    setWhoVal(false);
+    setContactVal(false);
+    setTextVal(false);
+  }
+
   function cleanForm() {
     setRequestIsSent(false);
     setRequestSuccess(null);
     dispatch({ type: "form/reset" });
   }
 
-  async function handleForm(e) {
+  async function submitForm(e) {
     e.preventDefault(e);
+    resetValidation();
     const { text, who, contact } = formData;
-    setRequestIsSent(true);
-    const res = await fetch(
-      `/api/t?text=${text}&who=${who}&contact=${contact}`
-    );
-    if (res.ok) setRequestSuccess(true);
-    else setRequestSuccess(false);
+
+    const validationGen = validate(formData);
+
+    const whoValidation = validationGen.next().value;
+    const contactValidation = validationGen.next().value;
+    const textValidation = validationGen.next().value;
+
+    if (whoValidation && contactValidation && textValidation) {
+      setRequestIsSent(true);
+      const res = await fetch(
+        `/api/t?text=${text}&who=${who}&contact=${contact}`
+      );
+      if (res.ok) setRequestSuccess(true);
+      else setRequestSuccess(false);
+    } else {
+      if (!whoValidation) setWhoVal(true);
+      if (!contactValidation) setContactVal(true);
+      if (!textValidation) setTextVal(true);
+    }
   }
 
   return (
@@ -137,7 +171,16 @@ function Dialog({ isVisible, setVisibility }) {
             </button>
             <div className="px-6 mt-5 flex-1 flex flex-col">
               {!requestIsSent && (
-                <Form {...{ textareaValue, handleForm, inputHandler }} />
+                <Form
+                  {...{
+                    textareaValue,
+                    submitForm,
+                    inputHandler,
+                    whoVal,
+                    textVal,
+                    contactVal
+                  }}
+                />
               )}
               {requestIsSent && requestSuccess !== null && (
                 <ResponseBlock {...{ chooseRequestResult, cleanForm }} />
