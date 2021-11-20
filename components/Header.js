@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import Image from "next/image";
-import icon from "public/img/icon.png";
 import Button from "components/Button";
+import logo from "public/img/logo.png";
 import MobileMenu from "components/MobileMenu";
 import keyDownHandler from "app/keyDown";
 import developers from "public/img/photo.webp";
@@ -65,8 +65,8 @@ function Header({ setVisibility }) {
         <div className="px-4 mb-6 bg-white sm:px-6 sm:mb-14 lg:relative lg:z-10 lg:mb-0 lg:px-0 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 info-block">
           <div className="box-border mt-6 flex justify-between lg:mt-0 lg:p-6 lg:pb-0 lg:justify-start">
             <Link href="/">
-              <a className="w-8 h-8 sm:w-10 sm:h-10 outline rounded lg:mr-10">
-                <Image src={icon} alt="logo" layout="responsive" />
+              <a className="w-32 lg:w-48 outline rounded lg:mr-10">
+                <Image src={logo} layout="responsive" alt="Логотип" />
               </a>
             </Link>
             {innerWidth < 768 ? (

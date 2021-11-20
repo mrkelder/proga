@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import icon from "public/img/icon.png";
+import logo from "public/img/logo.png";
 import cross from "public/img/cross.svg";
 import { useSelector } from "react-redux";
 import keyDownHandler from "app/keyDown";
@@ -77,8 +77,8 @@ function MobileMenu({ opened, setOpened }) {
       >
         <div className="flex justify-between items-center">
           <Link href="/">
-            <a className="w-8 h-8 sm:w-10 sm:h-10 outline rounded lg:mr-10">
-              <Image src={icon} alt="logo" layout="responsive" />
+            <a className="w-32 outline rounded lg:mr-10">
+              <Image src={logo} layout="responsive" alt="Логотип" />
             </a>
           </Link>
           <button
