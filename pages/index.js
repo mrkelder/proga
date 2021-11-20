@@ -18,7 +18,6 @@ export default function Home() {
   const metaImage = "https://proga.site/logo.jpg";
   return (
     <>
-      {/* TODO: semmantics (check headers and check sections), image sizing optimization */}
       <Head>
         <title>Proga</title>
         <meta name="description" content={metaDescription} />

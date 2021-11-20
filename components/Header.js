@@ -9,18 +9,19 @@ import keyDownHandler from "app/keyDown";
 import developers from "public/img/photo.webp";
 
 function Header({ setVisibility }) {
-  const TITLE = "ашего бизнеса";
-  const [title, setTitle] = useState("В");
+  const TITLE = "Вашего бизнеса";
+  const [title, setTitle] = useState("Вашего бизнеса");
   const [innerWidth, setInnerWidth] = useState(null);
   const [menuOpened, setMenuOpened] = useState(false);
   const { links } = useSelector(store => store.links);
 
   useEffect(() => {
     let index = 0;
-    let currentTitle = "В";
+    let currentTitle = "";
+    setTitle("");
 
     function addSymbol() {
-      if (currentTitle.length <= TITLE.length)
+      if (currentTitle.length < TITLE.length)
         setTimeout(() => {
           currentTitle += TITLE[index];
           setTitle(currentTitle);

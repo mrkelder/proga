@@ -62,6 +62,7 @@ const data = [
 
 function WhyUs() {
   const [scrolled, setScrolled] = useState(false);
+  const [jsIsLoaded, setJsIsLoaded] = useState(false);
   const element = createRef();
   const dispatch = useDispatch();
 
@@ -71,6 +72,10 @@ function WhyUs() {
       payload: { name: "skills", ref: element }
     });
   }, [element, dispatch]);
+
+  useEffect(() => {
+    setJsIsLoaded(true);
+  }, []);
 
   useEffect(() => {
     const execute = () => {
@@ -97,11 +102,9 @@ function WhyUs() {
           ref={element}
         />
         <div
-          className={
-            scrolled
-              ? "flex flex-wrap my-12 dark:text-white animTopOn"
-              : "flex flex-wrap my-12 dark:text-white animTopOff"
-          }
+          className={`flex flex-wrap my-12 dark:text-white ${
+            scrolled || !jsIsLoaded ? "animTopOn" : "animTopOff"
+          }`}
         >
           {data.map(({ name, value, src, height, border }) => (
             <div
