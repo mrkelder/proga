@@ -170,7 +170,9 @@ function Dialog({ isVisible, setVisibility }) {
             onClick={stopPropagation}
           >
             <button className="absolute right-6 top-3" onClick={hideModal}>
-              <Image src={cross} alt="Закрыть" />
+              <div className="relative w-8 h-8">
+                <Image src={cross} layout="fill" alt="Закрыть" />
+              </div>
             </button>
             <div className="px-6 mt-5 flex-1 flex flex-col">
               {!requestIsSent && (
