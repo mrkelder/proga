@@ -35,7 +35,7 @@ function Card({ price, title, text, pluses, fS, setVisibility }) {
               {pluses.map(text => (
                 <li
                   key={`${text}_${Math.random()}`}
-                  className="my-1 flex items-start lg:col-span-1"
+                  className="my-1 flex items-center lg:col-span-1"
                 >
                   <div className="flex-shrink-0">
                     <svg
