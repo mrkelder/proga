@@ -13,7 +13,7 @@ function AboutUs() {
   }, [element, dispatch]);
 
   return (
-    <>
+    <section>
       <div className="py-20 px-4 text-white" id="about-us" ref={element}>
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row">
           <h2 className="mr-8 w-full md:w-1/3 text-3xl font-extrabold leading-9">
@@ -115,7 +115,7 @@ function AboutUs() {
           }
         }
       `}</style>
-    </>
+    </section>
   );
 }
 

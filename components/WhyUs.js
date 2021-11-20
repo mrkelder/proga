@@ -89,7 +89,7 @@ function WhyUs() {
   }, [element]);
 
   return (
-    <div className="my-4" id="features">
+    <section className="my-4" id="features">
       <div className="container mx-auto pt-0 p-6 bg-white dark:bg-gray-800">
         <Heading
           h2="особенности"
@@ -140,7 +140,7 @@ function WhyUs() {
           transform: translateY(25px);
         }
       `}</style>
-    </div>
+    </section>
   );
 }
 
