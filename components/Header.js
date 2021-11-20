@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "components/Button";
-import logo from "public/img/logo.png";
+import logo from "public/img/logo.webp";
 import MobileMenu from "components/MobileMenu";
 import keyDownHandler from "app/keyDown";
 import developers from "public/img/photo.webp";
@@ -117,7 +117,7 @@ function Header({ setVisibility }) {
             )}
           </div>
           <div className="sm:flex sm:flex-col sm:items-center lg:px-6 lg:items-start  lg:pt-16">
-            <h1 className="text-4xl font-bold mt-10 tracking-tight flex flex-col sm:items-center sm:text-5xl md:text-6xl lg:items-start">
+            <h1 className="text-4xl font-bold mt-10 lg:mt-0 tracking-tight flex flex-col sm:items-center sm:text-5xl md:text-6xl lg:items-start">
               <span>Создание сайта для</span>
               <span className="text-primary flex">
                 {title}

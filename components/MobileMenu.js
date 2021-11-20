@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "public/img/logo.png";
-import cross from "public/img/cross.svg";
+import logo from "public/img/logo.webp";
+import cross from "public/img/cross.webp";
 import { useSelector } from "react-redux";
 import keyDownHandler from "app/keyDown";
 
@@ -85,7 +85,7 @@ function MobileMenu({ opened, setOpened }) {
             onClick={closeMenu}
             className="w-8 h-8 sm:w-10 sm:h-10 outline rounded lg:mr-10 flex items-center justify-center menu-interact"
           >
-            <Image src={cross} alt="закрыть" width={28} height={28} />
+            <Image src={cross} alt="Закрыть" width={28} height={28} />
           </button>
         </div>
         <ul className="mt-5">

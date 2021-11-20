@@ -1,14 +1,14 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Input from "components/Input";
 import Button from "components/Button";
-import cross from "public/img/cross.svg";
+import cross from "public/img/cross.webp";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import validate from "app/validateForm";
-import success from "public/img/success.png";
-import failure from "public/img/success.png";
-import loading from "public/img/loading.png";
+import success from "public/img/success.webp";
+import failure from "public/img/failure.webp";
+import loading from "public/img/loading.webp";
 
 const FORM_IMAGE_SIZE = "w-36 h-36 sm:w-52 sm:h-52";
 
@@ -170,7 +170,7 @@ function Dialog({ isVisible, setVisibility }) {
             onClick={stopPropagation}
           >
             <button className="absolute right-6 top-3" onClick={hideModal}>
-              <Image src={cross} alt="закрыть" />
+              <Image src={cross} alt="Закрыть" />
             </button>
             <div className="px-6 mt-5 flex-1 flex flex-col">
               {!requestIsSent && (
