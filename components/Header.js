@@ -117,7 +117,7 @@ function Header({ setVisibility }) {
             )}
           </div>
           <div className="sm:flex sm:flex-col sm:items-center lg:px-6 lg:items-start  lg:pt-16">
-            <h1 className="text-4xl font-bold mt-10 tracking-tight flex flex-wrap sm:flex-col sm:items-center sm:text-5xl md:text-6xl lg:items-start">
+            <h1 className="text-4xl font-bold mt-10 tracking-tight flex flex-col sm:items-center sm:text-5xl md:text-6xl lg:items-start">
               <span>Создание сайта для</span>
               <span className="text-primary flex">
                 {title}
