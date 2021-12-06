@@ -9,7 +9,6 @@ import keyDownHandler from "app/keyDown";
 import developers from "public/img/photo.webp";
 
 function Header({ setVisibility }) {
-  console.log(1);
   const TITLE = "Вашего бизнеса";
   const [title, setTitle] = useState("Вашего бизнеса");
   const [innerWidth, setInnerWidth] = useState(null);
