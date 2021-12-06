@@ -9,6 +9,7 @@ import keyDownHandler from "app/keyDown";
 import developers from "public/img/photo.webp";
 
 function Header({ setVisibility }) {
+  console.log(1);
   const TITLE = "Вашего бизнеса";
   const [title, setTitle] = useState("Вашего бизнеса");
   const [innerWidth, setInnerWidth] = useState(null);
@@ -16,9 +17,9 @@ function Header({ setVisibility }) {
   const { links } = useSelector(store => store.links);
 
   useEffect(() => {
-    let index = 0;
-    let currentTitle = "";
-    setTitle("");
+    let index = 1;
+    let currentTitle = "В";
+    setTitle("В");
 
     function addSymbol() {
       if (currentTitle.length < TITLE.length)
