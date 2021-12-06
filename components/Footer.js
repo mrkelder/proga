@@ -13,11 +13,10 @@ const footer = [
   {
     title: "контакты",
     li: [
-      { name: "+38 (095) 000-00-00", link: "tel:+380000000000" },
-      { name: "+7 (107) 000-00-00", link: "tel:+71076769553" },
+      { name: "+38 (095) 559-23-13", link: "tel:+380955592313" },
       {
-        name: "d.and.v.develpment@gmail.com",
-        link: "mailto:d.and.v.develpment@gmail.com"
+        name: "proga.development@gmail.com",
+        link: "mailto:proga.development@gmail.com"
       }
     ]
   }
